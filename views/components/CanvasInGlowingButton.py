@@ -21,7 +21,7 @@ class CanvasInGlowingButton:
         self.text_y = text_y
         self._canvas_img_list = []
 
-        image_path_glow_64 = "./glow_64.png"
+        image_path_glow_64 = "views/components/glow_64.png"
         image_glow_64 = Image.open(image_path_glow_64)
         self.image_glow_64 = image_glow_64.resize((120, 120))
         self.glowing_photo = ImageTk.PhotoImage(self.image_glow_64)

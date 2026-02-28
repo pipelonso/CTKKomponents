@@ -1,4 +1,3 @@
-from views.components.DraggableFrame import DraggableFrame
 from typing import Optional, Any
 
 
@@ -8,11 +7,9 @@ class DraggableFrameAdministrator:
     self_master = None
 
     def __init__(self,
-                 master: Any,
-                 make_mode: Optional[str] = ''):
+                 master: Any):
 
         self.master = master
-        self.make = make_mode
 
         pass
 
@@ -29,7 +26,7 @@ class DraggableFrameAdministrator:
                 self.window_list[i].regenerate_position()
 
     @staticmethod
-    def register_window(window: DraggableFrame):
+    def register_window(window):
         DraggableFrameAdministrator.window_list.append(window)
 
     def left_window(self, window):
@@ -38,6 +35,6 @@ class DraggableFrameAdministrator:
                 del self.window_list[index]
 
     @staticmethod
-    def sort_windows(window: DraggableFrame):
+    def sort_windows(window):
         window.border.lift()
         pass

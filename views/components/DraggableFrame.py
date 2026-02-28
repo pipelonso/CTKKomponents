@@ -3,7 +3,7 @@ from typing import Union, Tuple, Optional, Any
 import tkinter
 import customtkinter
 import pyautogui
-from views.components import DragableFrameAdministrator
+from views.components.DragableFrameAdministrator import DraggableFrameAdministrator
 from customtkinter import CTkFont
 
 
@@ -51,7 +51,7 @@ class DraggableFrame:
                  close_button_border_radius: Optional[int] = 0,
                  close_button_hover_color: Optional[Union[str, Tuple[str, str]]] = None,
                  control_buttons_padding: Optional[int] = 0,
-                 administrator: Optional[DragableFrameAdministrator.DraggableFrameAdministrator] = None,
+                 administrator: Optional[DraggableFrameAdministrator] = None,
                  draggable: Optional[bool] = True,
                  show_align_options: Optional[bool] = True,
                  header_padding_color: Optional[Union[str, Tuple[str, str]]] = ('black', 'white'),
@@ -82,8 +82,8 @@ class DraggableFrame:
 
         self.anchored = isinstance(custom_position, str)
 
-        if isinstance(self.administrator, DragableFrameAdministrator.DraggableFrameAdministrator):
-            DragableFrameAdministrator.DraggableFrameAdministrator.register_window(self)
+        if isinstance(self.administrator, DraggableFrameAdministrator):
+            DraggableFrameAdministrator.register_window(self)
 
         self.custom_position = custom_position
 
@@ -190,8 +190,8 @@ class DraggableFrame:
         pass
 
     def remap_z_index(self):
-        if isinstance(self.administrator, DragableFrameAdministrator.DraggableFrameAdministrator):
-            admin = DragableFrameAdministrator.DraggableFrameAdministrator
+        if isinstance(self.administrator, DraggableFrameAdministrator):
+            admin = DraggableFrameAdministrator
             admin.sort_windows(self)
             pass
         pass

@@ -2,3 +2,4 @@ tk
 customtkinter
 cairosvg
 pyautogui
+pygments
